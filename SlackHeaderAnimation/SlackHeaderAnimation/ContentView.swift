@@ -10,12 +10,38 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            HStack(spacing: 10) {
+                Image(systemName: "chevron.left")
+                    .font(.title3)
+                
+                PopOutView { isExpanded in
+                    HStack {
+                        Image(systemName: "number")
+                            .fontWeight(.semibold)
+                        
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("general")
+                                .fontWeight(.semibold)
+                            
+                            Text("36 Members - 4 Online")
+                                .font(.caption)
+                                .foregroundStyle(.gray)
+                        }
+                    }
+                    .padding(.horizontal, 10)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(height: 50)
+                } content: { isExpanded in
+                    
+                }
+
+                Image(systemName: "airpods.max")
+                    .font(.title3)
+            }
+            
+            Spacer()
         }
-        .padding()
+        .padding(15)
     }
 }
 
